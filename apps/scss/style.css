@@ -1,3 +1,55 @@
+@-webkit-keyframes leftToRight {
+  from {
+    -webkit-transform: translateX(-10rem);
+            transform: translateX(-10rem);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes leftToRight {
+  from {
+    -webkit-transform: translateX(-10rem);
+            transform: translateX(-10rem);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes rightToLeft {
+  from {
+    -webkit-transform: translateX(10rem);
+            transform: translateX(10rem);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rightToLeft {
+  from {
+    -webkit-transform: translateX(10rem);
+            transform: translateX(10rem);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 html {
   font-size: 100%;
   -webkit-box-sizing: border-box;
@@ -29,11 +81,15 @@ q:after {
   content: close-quote;
 }
 
-.testimonial {
-  margin: 1.4375rem 1.4375rem 0px 1.4375rem;
+.slider {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.testimonial {
+  margin: 1.4375rem 1.4375rem 0px 1.4375rem;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -243,7 +299,7 @@ q:after {
     width: 7.5rem;
     height: 6.25rem;
     top: 187px;
-    left: 256px;
+    left: 240px;
   }
 }
 
@@ -336,5 +392,26 @@ q:after {
 
 .hide-testimonial {
   display: none;
+}
+
+.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 1;
+}
+
+.fromLeft {
+  -webkit-animation: leftToRight 1s ease;
+          animation: leftToRight 1s ease;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
+}
+
+.fromRight {
+  -webkit-animation: rightToLeft 1s ease;
+          animation: rightToLeft 1s ease;
+  -webkit-animation-fill-mode: backwards;
+          animation-fill-mode: backwards;
 }
 /*# sourceMappingURL=style.css.map */

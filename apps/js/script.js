@@ -1,44 +1,71 @@
-const testimonial = document.getElementById("testimonial");
-const nextTesti = document.getElementById("next");
-const previousTesti = document.getElementById("previous");
-const testimonial1 = document.getElementById("testimonial1");
-const testimonial2 = document.getElementById("testimonial2");
+function main() {
+    const cards$ = document.querySelectorAll(".testimonial");
+    const leftArrows$ = document.querySelectorAll('#previous');
+    const rightArrows$ = document.querySelectorAll('#next');
 
-nextTesti.addEventListener('click', function(){
-    console.log('click slider');
+    const wrapper$ = document.querySelector(".slider");
 
+    const carousel = new CarouselSlider(0, cards$, true);
 
-    if(testimonial2.classList.contains('hide-testimonial')){
-        testimonial2.classList.remove("hide-testimonial");
-        testimonial1.classList.add("hide-testimonial");
-        
+    leftArrows$.forEach(a => a.onclick = () => carousel.moveLeft());
+    rightArrows$.forEach(a => a.onclick = () => carousel.moveRight());
+
+    wrapper$.addEventListener('mouseover', (ev) => carousel.stopSlideShow());
+    wrapper$.addEventListener('mouseleave', (ev) => carousel.playSlideShow());
+}
+
+class CarouselSlider {
+
+    constructor(startIdx, carouselItems, autoPlay) {
+        this.currentPosition = startIdx;
+        this.carouselItems = carouselItems;
+        this.numItems = carouselItems.length;
+
+        if (autoPlay)
+            this.playSlideShow();
     }
 
-    else{
-        testimonial2.classList.add("hide-testimonial");
-        testimonial1.classList.remove("hide-testimonial");
-        
+    /**
+     * @param {number} value
+     */
+    set position(value) {
+        this.currentPosition = Math.abs(value % this.numItems);
     }
 
-
-
-});
-
-previousTesti.addEventListener('click', function(){
-    console.log('click slider');
-
-    if(testimonial1.classList.contains('hide-testimonial')){
-        testimonial2.classList.add("hide-testimonial");
-        testimonial1.classList.remove("hide-testimonial");
-        
+    get position() {
+        return this.currentPosition;
     }
 
-    else {
-        testimonial1.classList.add("hide-testimonial");
-        testimonial2.classList.remove("hide-testimonial");
+    playSlideShow() {
+        this.slideShowTimer = setInterval(_ => this.moveRight(), 5000);
     }
 
+    stopSlideShow() {
+        clearInterval(this.slideShowTimer);
+    }
+
+    setActiveItem(item$, direction) {
+        this.stopSlideShow();
+        this.carouselItems.forEach(i => i.classList.remove("active", "fromRight", "fromLeft"));
+        if (direction == 'left')
+            item$.classList.add("active", "fromRight");
+        else
+            item$.classList.add("active", "fromLeft");
+        this.playSlideShow();
+    }
+
+    moveRight() {
+        this.position += 1;
+        const item$ = this.carouselItems[this.position];
+        this.setActiveItem(item$, 'right');
+    }
+
+    moveLeft() {
+        this.position -= 1;
+        const item$ = this.carouselItems[this.position];
+        this.setActiveItem(item$, 'left');
+    }
+}
 
 
-});
-
+document.addEventListener("DOMContentLoaded", main);
