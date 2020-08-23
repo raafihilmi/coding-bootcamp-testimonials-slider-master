@@ -1,0 +1,261 @@
+.testimonial {
+    margin: 1.4375rem 1.4375rem 0px 1.4375rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (min-width: 30rem) {
+        flex-direction: row-reverse;
+    }
+
+    &__profile {
+        display: flex;
+        position: relative;
+        width: auto;
+        height: 21.3125rem;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0.625rem;
+
+        @media screen and (min-width: 30rem) {
+        height: 41.25rem;
+    }
+
+        &__background {
+            background-image: url(/images/pattern-bg.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 20.5625rem;
+            height: 19.375rem;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            @media screen and (min-width: 30rem){
+                width: 43.75rem;
+                height: 41.25rem;
+            }
+        }
+
+        &__picture {
+            position: absolute;
+            background-image: url(/images/image-tanya.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 16.0625rem;
+            height: 16.0625rem;
+            top: 2.875rem;
+            box-shadow: 4px 21px 20px -5px rgba(0, 0, 0, 0.2);
+
+            @media screen and (min-width: 30rem) {
+                width: 33.875rem;
+                height: 33.875rem;
+                top: 63px;
+                box-shadow: 4px 32px 19px -5px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        &__picture2 {
+            position: absolute;
+            background-image: url(/images/image-john.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 16.0625rem;
+            height: 16.0625rem;
+            top: 2.875rem;
+            box-shadow: 4px 21px 20px -5px rgba(0, 0, 0, 0.2);
+
+            @media screen and (min-width: 30rem) {
+                width: 33.875rem;
+                height: 33.875rem;
+                top: 63px;
+                box-shadow: 4px 32px 19px -5px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+
+        &__slider {
+            display: flex;
+            flex-wrap: nowrap;
+            position: absolute;
+            width: 5.125rem;
+            height: 2.625rem;
+            background-color: white;
+            border-radius: 1.25rem;
+            bottom: 1.125rem;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 1px 20px -5px rgba(0, 0, 0, 0.2);
+            
+            // &:hover {
+            //     background-color: #AA89E6;
+            // }
+            
+
+            @media screen and (min-width: 30rem) {
+                bottom: 35px;
+                left: 175px;
+                width: 114px;
+                height: 57px;
+                border-radius: 55px;
+                box-shadow: 1px 20px -5px rgba(0, 0, 0, 0.2);
+            }
+
+            
+            &__previous {
+
+                background-image: url(/images/icon-prev.svg);
+                background-size: cover;
+                background-repeat: no-repeat;
+                width: 0.6875rem;
+                height: 0.875rem;
+                cursor: pointer;
+
+                &:hover {
+
+                    padding: 5px;
+                    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+                }
+
+                @media screen and (min-width: 30rem) {
+                    width: 13px;
+                    height: 20px;
+                }
+
+            }
+
+            &__next {
+                background-image: url(/images/icon-next.svg);
+                background-size: cover;
+                background-repeat: no-repeat;
+                width: 0.6875rem;
+                height: 0.875rem;
+                cursor: pointer;
+
+                &:hover {
+
+                    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+                }
+
+                @media screen and (min-width: 30rem) {
+                    width: 13px;
+                    height: 20px;
+                }
+            }
+        }
+    }
+
+    &__desc {
+
+        display: flex;;
+        flex-direction: column;
+
+        &__pattern {
+
+            background-image: url(/images/pattern-quotes.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 3.8125rem;
+            height: 3.1875rem;
+            position: absolute;
+            align-self: center;
+
+            @media screen and (min-width: 30rem) {
+                width: 7.5rem;
+                height: 6.25rem;
+                top: 187px;
+                left: 197px;
+                
+            }
+
+        }
+
+        &__description {
+            position: relative;
+            top: 0.4375rem;
+
+            p {
+                font-weight: 300;
+                font-size: 1.1875rem;
+                text-align: center;
+
+                @media screen and (min-width: 30rem) {
+                    position: relative;
+                    width: 592px;
+                    left: 131px;
+                    font-size: 1.875rem;
+                    text-align: left;
+                }
+            }
+            
+            .profile {
+
+                @media screen and (min-width:30rem) {
+                    display: flex;
+                    position: relative;
+                    left: 131px;
+                    align-items: center;
+                }
+
+                .name {
+                    text-align: center;
+                    color: $darkBlue;
+                    font-size: 1.125rem;
+                    font-weight: 700;
+
+                    @media screen and (min-width:30rem) {
+                        margin-right: 8px;
+                    }
+                }
+    
+                .jobs {
+                    text-align: center;
+                    color: $grayishBlue;
+                    font-size: 1.0625rem;
+                    font-weight: 300;
+                    margin-bottom: 0.4375rem;
+                    font-weight: 500;
+
+                    @media screen and (min-width:30rem) {
+                        margin-bottom: 0;
+                    }
+                }
+            }
+
+            
+        }
+
+        
+    
+    }
+
+    .pattern {
+
+        position: relative;
+        align-self: baseline;
+        left: -23px;
+        background-image: url(/images/pattern-curve.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-width: 17.5rem;
+        height: 4.5rem;
+
+        @media screen and (min-width:30rem) {
+            display: block;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            align-self: flex-end;
+            width: 600px;
+            height: 155px;
+        }
+
+    }
+
+}
+
+.hide-testimonial {
+    display: none;
+}
